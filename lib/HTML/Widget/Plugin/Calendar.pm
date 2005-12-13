@@ -99,9 +99,9 @@ sub calendar_js {
   $base =~ s{/\z}{}; # to avoid baseurl//yourface or baseurlyourface
 
   my $scripts = <<END_HTML;
-  <script type="text/javascript" src="$base/calendar.js" />
-  <script type="text/javascript" src="$base/lang/calendar-en.js" />
-  <script type="text/javascript" src="$base/calendar-setup.js" />
+  <script type="text/javascript" src="$base/calendar.js"></script>
+  <script type="text/javascript" src="$base/lang/calendar-en.js"></script>
+  <script type="text/javascript" src="$base/calendar-setup.js"></script>
 END_HTML
 
 }
