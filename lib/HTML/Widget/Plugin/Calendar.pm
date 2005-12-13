@@ -60,7 +60,7 @@ sub calendar {
   $arg->{jscalendar}{showsTime} = 1 if $arg->{time};
 
   $arg->{format}
-    ||= '%Y-%m-%d' . ($arg->{jscalendar}{showsTime} ? '%H:%M' : '');
+    ||= '%Y-%m-%d' . ($arg->{jscalendar}{showsTime} ? ' %H:%M' : '');
   
   my $widget = HTML::Element->new('input');
   $widget->attr($_ => $arg->{attr}{$_}) for keys %{ $arg->{attr} };
