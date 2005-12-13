@@ -55,6 +55,12 @@ sub calendar {
   
   Carp::croak "you must supply a widget id for calendar"
     unless $arg->{attr}{id};
+
+  $arg->{jscalendar} ||= {};
+  $arg->{jscalendar}{showsTime} = 1 if $arg->{time};
+
+  $arg->{format}
+    ||= '%Y-%m-%d' . ($arg->{jscalendar}{showsTime} ? '%H:%M' : '');
   
   my $widget = HTML::Element->new('input');
   $widget->attr($_ => $arg->{attr}{$_}) for keys %{ $arg->{attr} };
@@ -70,6 +76,7 @@ sub calendar {
         inputField => $widget->attr('id'),
         ifFormat   => $arg->{format},
         button     => $button->attr('id'),
+        %{ $arg->{jscalendar} },
       })
     ;
 
