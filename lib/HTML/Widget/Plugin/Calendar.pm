@@ -66,8 +66,13 @@ sub calendar {
   $widget->attr($_ => $arg->{attr}{$_}) for keys %{ $arg->{attr} };
   $widget->attr(value => $arg->{value}) if exists $arg->{value};
 
-  my $button = HTML::Element->new('button', id => $arg->{attr}{id} . "_button");
-     $button->push_content($arg->{button_label} || '...');
+  unless ($arg->{no_button}) {
+    my $button = HTML::Element->new(
+      'button',
+      id => $arg->{attr}{id} . "_button"
+    );
+    $button->push_content($arg->{button_label} || '...');
+  }
 
   my $script = HTML::Element->new('script', type => 'text/javascript');
   my $js
@@ -75,7 +80,7 @@ sub calendar {
       Data::JavaScript::Anon->anon_dump({
         inputField => $widget->attr('id'),
         ifFormat   => $arg->{format},
-        button     => $button->attr('id'),
+        ($arg->{no_button} ? () : (button => $button->attr('id'))),
         %{ $arg->{jscalendar} },
       })
     ;
@@ -87,7 +92,7 @@ sub calendar {
 
   return join q{},
     $self->calendar_js($factory, $arg),
-    map { $_->as_XML } ($widget, $button, $script),
+    map { $_->as_XML } ($widget, ($arg->{no_button} ? $button : ()), $script),
   ;
 }
 
