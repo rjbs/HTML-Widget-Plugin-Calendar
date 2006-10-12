@@ -66,8 +66,10 @@ sub calendar {
   $widget->attr($_ => $arg->{attr}{$_}) for keys %{ $arg->{attr} };
   $widget->attr(value => $arg->{value}) if exists $arg->{value};
 
+  my $button;
+
   unless ($arg->{no_button}) {
-    my $button = HTML::Element->new(
+    $button = HTML::Element->new(
       'button',
       id => $arg->{attr}{id} . "_button"
     );
