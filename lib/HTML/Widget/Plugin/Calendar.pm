@@ -94,7 +94,7 @@ sub calendar {
 
   return join q{},
     $self->calendar_js($factory, $arg),
-    map { $_->as_XML } ($widget, ($arg->{no_button} ? $button : ()), $script),
+    map { $_->as_XML } ($widget, ($arg->{no_button} ? () : $button), $script),
   ;
 }
 
