@@ -1,7 +1,0 @@
-<& /variables,
-   PREFIX => "/icg/pkg/local/widcal",
-&>
-
-<& /install/dir, src => "lib", dst => "perl-lib" &>
-
-<& /test &>
