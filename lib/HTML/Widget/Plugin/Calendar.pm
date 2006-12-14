@@ -14,13 +14,13 @@ HTML::Widget::Plugin::Calendar - simple construction of jscalendar inputs
 
 =head1 VERSION
 
-version 0.01
+version 0.010
 
  $Id$
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.010';
 
 =head1 SYNOPSIS
 
@@ -131,18 +131,19 @@ __PACKAGE__->mk_classdata( qw(calendar_baseurl) );
 
 =head1 AUTHOR
 
-Ricardo Signes, C<< <rjbs@cpan.org> >>
+Ricardo SIGNES, C<< <rjbs@cpan.org> >>
+
+Development of this code in 2005 and 2006 was sponsored by Listbox.
 
 =head1 BUGS
 
-Please report any bugs or feature requests to
-C<bug-html-widget-plugin-calendar@rt.cpan.org>, or through the web interface at
+Please report any bugs or feature requests through the web interface at
 L<http://rt.cpan.org>.  I will be notified, and then you'll automatically be
 notified of progress on your bug as I make changes.
 
 =head1 COPYRIGHT
 
-Copyright 2005 Ricardo Signes, All Rights Reserved.
+Copyright 2005-2006 Ricardo SIGNES, All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

@@ -1,8 +1,10 @@
 Changes
+LICENSE
 MANIFEST
 Makefile.PL
 README
 lib/HTML/Widget/Plugin/Calendar.pm
 t/00-load.t
+t/calendar.t
 t/pod-coverage.t
 t/pod.t
