@@ -7,6 +7,7 @@ WriteMakefile(
     AUTHOR              => 'Ricardo Signes <rjbs@cpan.org>',
     VERSION_FROM        => 'lib/HTML/Widget/Plugin/Calendar.pm',
     ABSTRACT_FROM       => 'lib/HTML/Widget/Plugin/Calendar.pm',
+    (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
     PL_FILES            => {},
     PREREQ_PM => {
         'Test::More'    => 0,
