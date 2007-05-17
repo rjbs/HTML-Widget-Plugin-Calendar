@@ -43,7 +43,7 @@ This plugin provides the following widgets: calendar, calendar_js
 
 =cut
 
-sub provided_widgets { qw(calendar) }
+sub provided_widgets { qw(calendar calendar_js) }
 
 =head2 calendar
 
