@@ -39,7 +39,7 @@ using the excellent jscalendar.
 
 =head2 C< provided_widgets >
 
-This plugin provides the following widgets: calendar
+This plugin provides the following widgets: calendar, calendar_js
 
 =cut
 
@@ -99,6 +99,13 @@ sub calendar {
 }
 
 =head2 C< calendar_js >
+
+This method returns the JavaScript needed to use the calendar.  It will only
+return the JavaScript the first time it's called.
+
+Normally it's called when the calendar widget is used, but it may be called
+manually to force the JavaScript to be placed in your document at the location
+of your choosing.
 
 =cut
 
