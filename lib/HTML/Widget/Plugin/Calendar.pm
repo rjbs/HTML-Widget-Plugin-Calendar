@@ -1,26 +1,12 @@
-package HTML::Widget::Plugin::Calendar;
-use base qw(HTML::Widget::Plugin Class::Data::Inheritable);
-
-use warnings;
 use strict;
+use warnings;
+package HTML::Widget::Plugin::Calendar;
+use parent qw(HTML::Widget::Plugin Class::Data::Inheritable);
+# ABSTRACT: simple construction of jscalendar inputs
 
 use HTML::Element;
 use HTML::TreeBuilder;
 use Data::JavaScript::Anon;
-
-=head1 NAME
-
-HTML::Widget::Plugin::Calendar - simple construction of jscalendar inputs
-
-=head1 VERSION
-
-version 0.010
-
- $Id$
-
-=cut
-
-our $VERSION = '0.010';
 
 =head1 SYNOPSIS
 
@@ -51,8 +37,8 @@ sub provided_widgets { qw(calendar calendar_js) }
 
 sub calendar {
   my ($self, $factory, $arg) = @_;
-  $arg->{attr}{name} ||= $arg->{attr}{id}; 
-  
+  $arg->{attr}{name} ||= $arg->{attr}{id};
+
   Carp::croak "you must supply a widget id for calendar"
     unless $arg->{attr}{id};
 
@@ -61,7 +47,7 @@ sub calendar {
 
   $arg->{format}
     ||= '%Y-%m-%d' . ($arg->{jscalendar}{showsTime} ? ' %H:%M' : '');
-  
+
   my $widget = HTML::Element->new('input');
   $widget->attr($_ => $arg->{attr}{$_}) for keys %{ $arg->{attr} };
   $widget->attr(value => $arg->{value}) if exists $arg->{value};
@@ -89,7 +75,7 @@ sub calendar {
 
   # we need to make this an HTML::Element literal to avoid escaping the JS
   $js = HTML::Element->new('~literal', text => $js);
-        
+
   $script->push_content($js);
 
   return join q{},
@@ -111,9 +97,9 @@ of your choosing.
 
 sub calendar_js {
   my ($self, $factory, $arg) = @_;
-  
+
   return '' if $factory->{$self}->{output_js}++;
-  
+
   my $base = $self->calendar_baseurl;
   Carp::croak "calendar_baseurl is not defined" if not defined $base;
 
@@ -135,26 +121,5 @@ This must be set or calendar plugin creation will throw an exception.
 =cut
 
 __PACKAGE__->mk_classdata( qw(calendar_baseurl) );
-
-=head1 AUTHOR
-
-Ricardo SIGNES, C<< <rjbs@cpan.org> >>
-
-Development of this code in 2005 and 2006 was sponsored by Listbox.
-
-=head1 BUGS
-
-Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.  I will be notified, and then you'll automatically be
-notified of progress on your bug as I make changes.
-
-=head1 COPYRIGHT
-
-Copyright 2005-2006 Ricardo SIGNES, All Rights Reserved.
-
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
-
-=cut
 
 1;
