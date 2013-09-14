@@ -2,6 +2,9 @@ Revision history for HTML-Widget-Plugin-Calendar
 
 {{$NEXT}}
 
+0.021     2013-09-14 18:33:54 America/New_York
+        - fix bug in dist metadata
+
 0.020     2013-09-11 10:52:02 America/New_York
         - update repo, bugtracker
 
