@@ -1,8 +1,9 @@
 use strict;
 use warnings;
 package HTML::Widget::Plugin::Calendar;
-use parent qw(HTML::Widget::Plugin Class::Data::Inheritable);
 # ABSTRACT: simple construction of jscalendar inputs
+
+use parent qw(HTML::Widget::Plugin Class::Data::Inheritable);
 
 use HTML::Element;
 use HTML::TreeBuilder;
