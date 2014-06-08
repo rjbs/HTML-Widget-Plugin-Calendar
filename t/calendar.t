@@ -3,10 +3,13 @@ use strict;
 use warnings;
 
 use Test::More 'no_plan';
-BEGIN { use_ok('HTML::Widget::Factory'); }
-BEGIN { use_ok('HTML::Widget::Plugin::Calendar'); }
 
-my $factory = HTML::Widget::Factory->new;
+use HTML::Widget::Factory;
+use HTML::Widget::Plugin::Calendar;
+
+my $factory = HTML::Widget::Factory->new({
+  extra_plugins => [ HTML::Widget::Plugin::Calendar->new ],
+});
 
 can_ok($factory, 'calendar');
 
